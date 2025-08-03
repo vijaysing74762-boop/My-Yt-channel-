@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Login & Subscribe</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 5px #000;
+    }
+
+    .box {
+      background: white;
+      color: black;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 280px;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+
+    #subscribePage {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .subscribe-btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #ff0000;
+      color: white;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .subscribe-btn:hover {
+      background: #cc0000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="loginPage">
+    <h1>Welcome YouTube Channel</h1>
+    <div class="box">
+      <input type="text" placeholder="Enter your Name" id="name" />
+      <input type="text" placeholder="Enter your Surname" id="surname" />
+      <button onclick="showSubscribePage()">Continue</button>
+    </div>
+  </div>
+
+  <div id="subscribePage" class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo" />
+    <h1>Subscribe to Omni Bhau Channel ❤️</h1>
+    <a class="subscribe-btn" href="https://youtube.com/@omni_bhau?si=zDm6xPrEhsqYMueT" target="_blank">Subscribe Now</a>
+  </div>
+
+  <script>
+    function showSubscribePage() {
+      const name = document.getElementById("name").value.trim();
+      const surname = document.getElementById("surname").value.trim();
+
+      if (name && surname) {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("subscribePage").style.display = "flex";
+      } else {
+        alert("Please enter both Name and Surname!");
+      }
+    }
+  </script>
+
+</body>
+</html>
